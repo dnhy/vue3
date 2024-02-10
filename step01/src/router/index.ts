@@ -1,4 +1,9 @@
-import { createRouter, createWebHistory,createWebHashHistory, RouteRecordRaw } from "vue-router";
+import {
+  createRouter,
+  createWebHistory,
+  createWebHashHistory,
+  RouteRecordRaw,
+} from "vue-router";
 import HomeView from "../views/HomeView.vue";
 
 const routes: Array<RouteRecordRaw> = [
@@ -50,6 +55,30 @@ const routes: Array<RouteRecordRaw> = [
     path: "/PiniaTest",
     name: "PiniaTest",
     component: () => import("../views/PiniaTest.vue"),
+  },
+  {
+    path: "/RouterTest",
+    name: "RouterTest",
+    component: () => import("../views/RouterTest.vue"),
+  },
+  {
+    path: "/RouterTestTarget/:id",
+    name: "RouterTestTarget",
+    component: () => import("../views/RouterTestTarget.vue"),
+    // props: {
+    //   a: 123,
+    //   b: "qqq",
+    // },
+    //适用于params
+    // props:true,
+    props: (route) => {
+      return route.query;
+    },
+  },
+  {
+    path: "/APITest",
+    name: "APITest",
+    component: () => import("../views/APITest.vue"),
   },
 ];
 
